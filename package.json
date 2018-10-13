@@ -10,8 +10,10 @@
     "@zeit/next-less": "^1.0.1",
     "@zeit/next-sass": "^1.0.1",
     "antd-mobile": "^2.2.5",
+    "axios": "^0.18.0",
     "less": "^3.8.1",
     "next": "^7.0.2",
+    "nextjs-bingmaps": "^0.0.1",
     "node-sass": "^4.9.3",
     "react": "^16.5.2",
     "react-dom": "^16.5.2"

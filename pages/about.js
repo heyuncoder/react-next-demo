@@ -6,39 +6,31 @@ import Nav from "../components/nav";
 import { Button } from "antd-mobile";
 import dynamic from 'next/dynamic'
 
+// const DynamicReactBingmaps = dynamic(import('nextjs-bingmaps'))
+const DynamicAxios = dynamic(import('axios'))
+
 class About extends Component {
   static async getInitialProps({ req }) {
     const userAgent = req ? req.headers['user-agent'] : navigator.userAgent
-    console.log("not in client")
+    console.log("on in client")
     return { userAgent }
   }
-  // constructor(props) {
-  //   super(props);
-  // }
-  loadMap(){
-    setTimeout(() => {
-      if(!this.map){
-        if (window.Microsoft){
-          this.map = new window.Microsoft.Maps.Map(document.getElementById('myMap'), {});
-        }else{
-          this.loadMap()
-        }
-      }
-    }, 100);
+  constructor(props) {
+    super(props);
+    console.log("both of all")
   }
   componentDidMount() {
-      console.log(window.Microsoft)
-      
-      this.loadMap()
+    console.log('only in client')
+    // this.map = new window.Microsoft.Maps.Map(document.getElementById('myMap'), {});
   }
 
   render() {
     return (
       <div>
         <Head />
-        <NextHead>
-          <script type='text/javascript' src='https://cn.bing.com/api/maps/mapcontrol?key=AkWd1qtjvaQG5PSU3aZoLXezrdZ5HKSupOIJGOJ5yfmTg242ic4XAJdEqfJWLiXt'></script>
-        </NextHead>
+        {/* <DynamicReactBingmaps 
+          bingmapKey = "AkWd1qtjvaQG5PSU3aZoLXezrdZ5HKSupOIJGOJ5yfmTg242ic4XAJdEqfJWLiXt" > 
+        </DynamicReactBingmaps> */}
         <Button type="warning">about</Button>
         <div id="myMap" style={{width:'100vw', height:'100vh'}} />
       </div>
